@@ -8,17 +8,16 @@ const port = 3000;
 
 applyServerSettings(app);
 
+// MEMO: Express サーバーで使用する PrismaClient を生成する
 declare global {
   var __db__: PrismaClient | undefined;
 }
-
 const initPrisma = () => {
   // MEMO: ファイルを修正するたびにサーバーが再起動するため、 PrismaClient が再作成されるのを防ぐ
   const db = (global.__db__ = global.__db__ ?? new PrismaClient());
   db.$connect();
   return db;
 };
-
 const prisma = initPrisma();
 
 app.get('/', async (req, res) => {
