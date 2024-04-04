@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "tsx watch ./src/index.ts",
     "migrate": "prisma migrate dev",
-    "seed": "tsx ./prisma/seed.ts",
     "studio": "prisma studio"
   },
   "dependencies": {
