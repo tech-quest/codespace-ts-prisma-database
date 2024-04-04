@@ -13,6 +13,7 @@ declare global {
 }
 
 const initPrisma = () => {
+  // MEMO: ファイルを修正するたびにサーバーが再起動するため、 PrismaClient が再作成されるのを防ぐ
   const db = (global.__db__ = global.__db__ ?? new PrismaClient());
   db.$connect();
   return db;
