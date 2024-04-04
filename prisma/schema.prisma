@@ -9,26 +9,3 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
-
-model User {
-  id        String   @id
-  name      String
-  email     String   @unique
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
-  profile   Profile?
-
-  @@map("users")
-}
-
-// MEMO: profile を紐づけるユーザーの id を保持することでデータが関連付けされる
-model Profile {
-  id        String   @id
-  bio       String
-  userId    String   @unique
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  user      User     @relation(fields: [userId], references: [id])
-
-  @@map("profiles")
-}

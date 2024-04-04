@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "tsx watch ./src/index.ts",
-    "migrate": "prisma migrate dev",
-    "studio": "prisma studio"
+    "dev": "tsx watch ./src/index.ts"
   },
   "dependencies": {
     "@prisma/client": "^5.12.0",
